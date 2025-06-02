@@ -16,6 +16,12 @@ public class StreamsInterviewQuestions {
 
 
     // 2. How can you find the maximum value in a list of integers using streams?
+    public static Integer getMaxValue(List<Integer> numbers) {
+        return numbers.stream()
+                .max(Integer::compareTo)
+                .orElse(null);
+    }
+
     // 3. How do you convert a list of strings to uppercase using streams?
     // 4. How can you sort a list of objects based on a specific field using streams?
     // 5. How do you collect the results of a stream into a list?
@@ -60,6 +66,7 @@ public class StreamsInterviewQuestions {
     public static void main(String[] args) {
 
         System.out.println("Even Numbers: " + getEvenNumbers(Arrays.asList(1, 2, 3, 4, 5, 6)));
+        System.out.println("Max Value: " + getMaxValue(Arrays.asList(1, 2, 3, 4, 5, 6)));
 
         // Additional examples can be added here for other questions
     }
