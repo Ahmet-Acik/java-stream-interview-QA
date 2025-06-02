@@ -23,6 +23,12 @@ public class StreamsInterviewQuestions {
     }
 
     // 3. How do you convert a list of strings to uppercase using streams?
+
+    public static List<String> convertToUpperCase(List<String> strings) {
+        return strings.stream()
+                .map(String::toUpperCase)
+                .toList();
+    }
     // 4. How can you sort a list of objects based on a specific field using streams?
     // 5. How do you collect the results of a stream into a list?
     // 6. How can you check if any element in a stream matches a given condition?
@@ -67,6 +73,7 @@ public class StreamsInterviewQuestions {
 
         System.out.println("Even Numbers: " + getEvenNumbers(Arrays.asList(1, 2, 3, 4, 5, 6)));
         System.out.println("Max Value: " + getMaxValue(Arrays.asList(1, 2, 3, 4, 5, 6)));
+        System.out.println("Uppercase Strings: " + convertToUpperCase(Arrays.asList("hello", "world", "java")));
 
         // Additional examples can be added here for other questions
     }
