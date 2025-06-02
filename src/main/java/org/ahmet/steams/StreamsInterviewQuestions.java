@@ -1,8 +1,20 @@
 package org.ahmet.steams;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class StreamsInterviewQuestions {
 
     // 1. How do you filter a list of integers to only include even numbers?
+
+    public static List<Integer> getEvenNumbers(List<Integer> numbers) {
+        return numbers.stream()
+                .filter(n -> n % 2 == 0)
+                .toList();
+    }
+
+
     // 2. How can you find the maximum value in a list of integers using streams?
     // 3. How do you convert a list of strings to uppercase using streams?
     // 4. How can you sort a list of objects based on a specific field using streams?
@@ -45,4 +57,10 @@ public class StreamsInterviewQuestions {
     // 41. How do you use the `partitioningBy` collector to split elements into two groups?
     // 42. How can you use the `counting` collector to count elements in a stream?
 
+    public static void main(String[] args) {
+
+        System.out.println("Even Numbers: " + getEvenNumbers(Arrays.asList(1, 2, 3, 4, 5, 6)));
+
+        // Additional examples can be added here for other questions
+    }
 }
