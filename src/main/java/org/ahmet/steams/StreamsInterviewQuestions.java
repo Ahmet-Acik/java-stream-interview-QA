@@ -2,6 +2,7 @@ package org.ahmet.steams;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StreamsInterviewQuestions {
@@ -65,8 +66,27 @@ public class StreamsInterviewQuestions {
     // 37. How do you use the `toList` collector to convert a stream to a list?
     // 38. How can you use the `toSet` collector to convert a stream to a set?
     // 39. How do you use the `joining` collector to concatenate strings from a stream?
+
     // 40. How can you use the `groupingBy` collector to group elements in a stream?
+    // This can be done using the `Collectors.groupingBy` method, which allows you to group elements by a classifier function.
+    // For example, to group a list of strings by their length:
+
+
+    public static Map<Integer, List<String>> getGroupedByLength(List<String> strings) {
+        return strings.stream()
+                .collect(Collectors.groupingBy(String::length)); // keys will be the lengths, and values will be lists of strings of that length.
+
+    }
+
+
     // 41. How do you use the `partitioningBy` collector to split elements into two groups?
+    // The `Collectors.partitioningBy` method can be used to partition elements into two groups based on a predicate.
+    // For example, to partition a list of integers into even and odd numbers:
+    public static Map<Boolean, List<Integer>> partitionEvenOdd(List<Integer> numbers) {
+        return numbers.stream()
+                .collect(Collectors.partitioningBy(n -> n % 2 == 0)); // true for even, false for odd
+    }
+
     // 42. How can you use the `counting` collector to count elements in a stream?
 
     public static void main(String[] args) {
@@ -74,6 +94,7 @@ public class StreamsInterviewQuestions {
         System.out.println("Even Numbers: " + getEvenNumbers(Arrays.asList(1, 2, 3, 4, 5, 6)));
         System.out.println("Max Value: " + getMaxValue(Arrays.asList(1, 2, 3, 4, 5, 6)));
         System.out.println("Uppercase Strings: " + convertToUpperCase(Arrays.asList("hello", "world", "java")));
+        System.out.println("Grouped by Length: " + getGroupedByLength(Arrays.asList("apple", "banana", "kiwi", "pear", "peach")));
 
         // Additional examples can be added here for other questions
     }
