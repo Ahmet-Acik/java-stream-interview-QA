@@ -31,6 +31,13 @@ public class StreamsInterviewQuestions {
                 .toList();
     }
     // 4. How can you sort a list of objects based on a specific field using streams?
+    // This can be done using the `sorted` method with a comparator.
+    public static List<String> sortStringsByLength(List<String> strings) {
+        return strings.stream()
+                .sorted((s1, s2) -> Integer.compare(s1.length(), s2.length()))
+                .toList();
+    }
+
     // 5. How do you collect the results of a stream into a list?
     // 6. How can you check if any element in a stream matches a given condition?
     // 7. How do you find the first element in a stream that matches a condition?
@@ -91,11 +98,13 @@ public class StreamsInterviewQuestions {
 
     public static void main(String[] args) {
 
-        System.out.println("Even Numbers: " + getEvenNumbers(Arrays.asList(1, 2, 3, 4, 5, 6)));
-        System.out.println("Max Value: " + getMaxValue(Arrays.asList(1, 2, 3, 4, 5, 6)));
-        System.out.println("Uppercase Strings: " + convertToUpperCase(Arrays.asList("hello", "world", "java")));
-        System.out.println("Grouped by Length: " + getGroupedByLength(Arrays.asList("apple", "banana", "kiwi", "pear", "peach")));
-        System.out.println("Partitioned Even and Odd: " + partitionEvenOdd(Arrays.asList(1, 2, 3, 4, 5, 6)));
+        System.out.println("Even Numbers: " + getEvenNumbers(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
+        System.out.println("Max Value: " + getMaxValue(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
+        System.out.println("Uppercase Strings: " + convertToUpperCase(Arrays.asList("hello", "world", "java", "streams")));
+        System.out.println("Sorted Strings by Length: " + sortStringsByLength(Arrays.asList("apple", "banana", "kiwi", "pear", "peach", "strawberry", "blueberry",  "apple", "mango")));
+        System.out.println("Grouped by Length: " + getGroupedByLength(Arrays.asList("apple", "banana", "kiwi", "pear", "peach", "strawberry", "blueberry", "apple", "mango")));
+        System.out.println("Partitioned Even and Odd: " + partitionEvenOdd(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
+
 
         // Additional examples can be added here for other questions
     }
